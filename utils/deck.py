@@ -1,5 +1,5 @@
 from itertools import product
-from card import Card
+from utils.card import Card
 from random import shuffle, choice
 
 

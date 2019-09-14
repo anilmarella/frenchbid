@@ -1,4 +1,4 @@
-class Round:
+class Set:
     def __init__(self, trump_suit):
         self.trump = trump_suit
         self.cards_on_table = {}
@@ -6,14 +6,14 @@ class Round:
 
     def play_card(self, player_id, card):
         if len(self.cards_on_table) == 0:
-            self.open_suit = card[1]
+            self.open_suit = card.suit
         self.cards_on_table[player_id] = card
 
     def determine_winner(self):
         max_rank = -1
         winner = None
         trump_on_table = False
-        for pid, card in self.cards_on_table:
+        for pid, card in self.cards_on_table.items():
             if card.suit == self.open_suit and not trump_on_table:
                 if card.get_value() > max_rank:
                     winner = pid
